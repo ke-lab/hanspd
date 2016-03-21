@@ -1,0 +1,15 @@
+[submodule "seger/third_party/easyloggingpp"]
+	path = seger/third_party/easyloggingpp
+	url = git@github.com:easylogging/easyloggingpp.git
+[submodule "seger/third_party/rapidjson"]
+	path = seger/third_party/rapidjson
+	url = git@github.com:miloyip/rapidjson.git
+[submodule "seger/third_party/cereal"]
+	path = seger/third_party/cereal
+	url = git@github.com:USCiLab/cereal.git
+[submodule "seger/third_party/Catch"]
+	path = seger/third_party/Catch
+	url = git@github.com:philsquared/Catch.git
+[submodule "seger/third_party/googletest"]
+	path = seger/third_party/googletest
+	url = git@github.com:google/googletest.git

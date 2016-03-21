@@ -32,7 +32,7 @@ option(ZH_SEGER_BUILD_TESTS "Build zh-seger tests." ON)
 # matrix benchmark option
 option(ZH_SEGER_BUILD_BENCH "Build matrix benchmark exeutable." OFF)
 # some tests exeutable option
-option(ZH_SEGER_BUILD_SOMETESTS "Build some tests exeutable." ON)
+option(ZH_SEGER_BUILD_SOMETESTS "Build some tests exeutable." OFF)
 
 
 # common include
