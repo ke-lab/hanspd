@@ -1,36 +1,9 @@
-project(emws-cpp)
+project(seger-lib)
 
-file(GLOB SEGER_SRCS *_seger.cpp)
+file(GLOB SEGER_LIB_SRCS *.cpp)
+set(SEGER_LIB_NAME ${PROJECT_NAME} CACHE INTERNAL "seger-lib library name" FORCE)
+set(SEGER_LIB_SRCS ${SEGER_LIB_SRCS} CACHE INTERNAL "seger-lib library source files" FORCE)
 
-set(TRAIN_SRCS emws-train.cpp score_ret.cpp)
-set(PREDICT_SRCS emws-predict.cpp score_ret.cpp)
+add_library(${SEGER_LIB_NAME} SHARED ${SEGER_LIB_SRCS})
 
-set(TRAIN_EXEC emws-train)
-set(PREDICT_EXEC emws-predict)
-
-# serialization
-include_directories(${Cereal_INCLUDE_DIR})
-
-add_executable(${TRAIN_EXEC} ${TRAIN_SRCS} ${SEGER_SRCS})
-add_executable(${PREDICT_EXEC} ${PREDICT_SRCS} ${SEGER_SRCS})
-
-# boost program_options
-find_package(Boost REQUIRED COMPONENTS program_options)
-if(Boost_FOUND)
-    include_directories(${Boost_INCLUDE_DIRS})
-    target_link_libraries(${TRAIN_EXEC} ${Boost_LIBRARIES})
-    target_link_libraries(${PREDICT_EXEC} ${Boost_LIBRARIES})
-endif()
-
-target_link_libraries(${TRAIN_EXEC} ${ARMADILLO_LIBRARIES})
-target_link_libraries(${PREDICT_EXEC} ${ARMADILLO_LIBRARIES})
-
-
-set(STR_OP_SRCS str_op.cpp)
-set(UTF8_IO_SRCS utf8_io.cpp)
-
-set(SEGER_UTILS seger_utils CACHE INTERNAL "seger_utils library name" FORCE)
-add_library(${SEGER_UTILS} SHARED ${STR_OP_SRCS} ${UTF8_IO_SRCS})
-
-target_link_libraries(${TRAIN_EXEC} ${SEGER_UTILS})
-target_link_libraries(${PREDICT_EXEC} ${SEGER_UTILS})
+target_link_libraries(${SEGER_LIB_NAME} ${ARMADILLO_LIBRARIES})

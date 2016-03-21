@@ -14,11 +14,7 @@
 #include "rapidjson/filereadstream.h"
 #include "rapidjson/stringbuffer.h"
 
-#define ELPP_DEFAULT_LOG_FILE "logs/emws-unittest-%datetime.log"
-
 #include "easylogging++.h"
-
-INITIALIZE_EASYLOGGINGPP
 
 #include "gtest/gtest.h"
 

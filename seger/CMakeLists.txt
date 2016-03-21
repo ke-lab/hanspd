@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.3)
-project(zh-seger)
+project(han-seger)
 
 # output dir
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/bin")
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 
 # compiler flags
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
@@ -28,7 +28,7 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 set(CMAKE_COLOR_MAKEFILE   ON)
 
 # test option
-option(ZH_SEGER_BUILD_TESTS "Build zh-seger tests." ON)
+option(ZH_SEGER_BUILD_TESTS "Build zh-seger tests." OFF)
 # matrix benchmark option
 option(ZH_SEGER_BUILD_BENCH "Build matrix benchmark exeutable." OFF)
 # some tests exeutable option
@@ -60,10 +60,21 @@ include_directories(${RapidJSON_INCLUDE_DIR})
 
 # cereal
 set(Cereal_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/third_party/cereal/include)
+# serialization
+include_directories(${Cereal_INCLUDE_DIR})
 
 # project include dir
 set(PROJECT_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/src)
 include_directories("${PROJECT_INCLUDE_DIR}")
+
+# public includes
+set(${PROJECT_NAME}_INCLUDE_DIRS
+        ${ARMADILLO_INCLUDE_DIRS}
+        ${Easyloggingpp_INCLUDE_DIR}
+        ${RapidJSON_INCLUDE_DIR}
+        ${Cereal_INCLUDE_DIR}
+        ${PROJECT_INCLUDE_DIR}
+        CACHE INTERNAL "${PROJECT_NAME}: Include Directories" FORCE)
 
 # sub project
 
@@ -72,6 +83,7 @@ if(ZH_SEGER_BUILD_BENCH)
 endif()
 
 add_subdirectory(src/)
+add_subdirectory(executable/)
 
 if(ZH_SEGER_BUILD_SOMETESTS)
     add_subdirectory(some_test/)

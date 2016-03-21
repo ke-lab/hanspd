@@ -140,6 +140,8 @@ private:
     std::vector<std::string> dev_test_result;
     unsigned epoch;
 
+    el::Logger *logger;
+
     // fields created from normal methods
     std::map<std::u32string, Vocab> vocab;
     std::vector<std::u32string> index2word;
@@ -149,7 +151,6 @@ private:
     arma::mat syn1neg;
 
     // static member variables
-    static el::Logger *logger;
     static std::u32string const START;
     static std::u32string const END;
     static std::u32string const label0_as_vocab;

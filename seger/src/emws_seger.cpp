@@ -23,6 +23,7 @@
 #include "Vocab.h"
 
 emws_seger::emws_seger(rapidjson::Document const &config) {
+    logger = el::Loggers::getLogger("emws_seger");
 
     logger->info("### Initialization of the segmentation model ###");
 
@@ -133,11 +134,12 @@ emws_seger::emws_seger(rapidjson::Document const &config) {
     }
 
     epoch = 0;
-
 }
 
 emws_seger::emws_seger(std::string const &model_path) {
     // serialization
+    logger = el::Loggers::getLogger("emws_seger");
+
     using namespace std;
     ifstream ifs(model_path, ios::binary);
     cereal::BinaryInputArchive iarchive(ifs);
@@ -220,8 +222,6 @@ bool emws_seger::save(std::string const &model_path) const {
     syn1neg.save(syn1neg_path);
     return true;
 }
-
-el::Logger *emws_seger::logger = el::Loggers::getLogger("emws_seger");
 
 std::u32string const emws_seger::START = U"#S#";
 

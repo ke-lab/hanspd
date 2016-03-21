@@ -11,6 +11,7 @@
 #include "str_op.h"
 
 score_ret score_ret::parse_evaluation_result(std::string const &path_to_evaluation_result) {
+    el::Logger *logger = el::Loggers::getLogger("score_ret");
     // parse score result
     using namespace std;
     auto lines = utf8_io::readlines(path_to_evaluation_result);
@@ -41,5 +42,3 @@ score_ret score_ret::parse_evaluation_result(std::string const &path_to_evaluati
     }
     return sret;
 }
-
-el::Logger *score_ret::logger = el::Loggers::getLogger("score_ret");

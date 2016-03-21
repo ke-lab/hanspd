@@ -4,10 +4,6 @@
 
 #include <string>
 
-#include "easylogging++.h"
-
-INITIALIZE_EASYLOGGINGPP
-
 #include "gtest/gtest.h"
 
 #include "score_ret.h"
