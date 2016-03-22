@@ -31,7 +31,7 @@ int main(){
     std::cout<<std::endl;
     for(int i=0;i<aaa.size();i++)
         std::cout<<aaa[i].word<<"\t"<<aaa[i].tag<<"\t"<<aaa[i].label<<"\t"<<aaa[i].head<<std::endl;
-    
+
 
 
     cout << "Hello, hanspd!" << endl;

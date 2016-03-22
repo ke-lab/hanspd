@@ -1,6 +1,11 @@
 cmake_minimum_required (VERSION 2.8.0)
 project (deparser)
 set (SOURCE_DIR             ${PROJECT_SOURCE_DIR}/include/dep/Zpar/src)
+
+set(CMAKE_VERBOSE_MAKEFILE ON)
+set(CMAKE_COLOR_MAKEFILE   ON)
+
+
 include_directories (${SOURCE_DIR} ${SOURCE_DIR}/include)
 include_directories (${SOURCE_DIR}/chinese)
 set (CMAKE_CXX_FLAGS "-std=c++11 -g -w -W -O3 -DNDEBUG -DPERCEPTRON_FOR_DECODING -DLABELED -DTARGET_LANGUAGE=chinese")
@@ -31,7 +36,7 @@ ${SOURCE_DIR}/common/depparser/implementations/arceager/depparser_weight.cpp
 ${PROJECT_SOURCE_DIR}/src/dep/Zpar/Zpar.cpp
 )
 set(DEPARSER_LIB_NAME ${PROJECT_NAME} CACHE INTERNAL "deparser-lib library name" FORCE)
-add_library(${DEPARSER_LIB_NAME} SHARED ${POS_FILES})
+add_library(${DEPARSER_LIB_NAME} SHARED ${DEPARSER_FILE})
 
 
 add_executable (train_deparser
