@@ -9,17 +9,16 @@
 #include <vector>
 
 
-using namespace std;
 class PreProcessor {
 public:
-    string modify_file_for_train(const string &rawfile);
+   std:: string modify_file_for_train(const std::string &rawfile);
 
     //return modefied file for crf train;
-    int train_model(const string &_template, const string &stand_file, const string &modelname);
+    int train_model(const std::string &_template, const std::string &stand_file, const std::string &modelname);
 
-    int test_model(const string &model, const string &stand_file, const string &dest_file);
+    int test_model(const std::string &model, const std::string &stand_file, const std::string &dest_file);
 
-    vector<pair<string,string>> model_file_for_tag_ret(const string &tmp);
+    std::vector<std::pair<std::string,std::string>> model_file_for_tag_ret(const std::string &tmp);
 };
 
 #endif //POSTAGGER_PREPROCESSOR_H

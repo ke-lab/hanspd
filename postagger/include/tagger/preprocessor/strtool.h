@@ -5,20 +5,18 @@
 #include <iostream>
 #include <locale>
 #include <codecvt>
-using namespace std;
-
     namespace strtool {
-        extern string trim(const string &str);
+        extern std::string trim(const std::string &str);
 
-        extern int split(const string &str, vector<string> &ret_, string sep = ",");
+        extern int split(const std::string &str, std::vector<std::string> &ret_, std::string sep = ",");
 
-        extern string replace(const string &str, const string &src, const string &dest);
+        extern std::string replace(const std::string &str, const std::string &src, const std::string &dest);
 
-        static wstring_convert<codecvt_utf8<char32_t>,char32_t> conv;
+        static std::wstring_convert<std::codecvt_utf8<char32_t>,char32_t> conv;
 
-        extern string To_UTF8(const u32string& from);
+        extern std::string To_UTF8(const std::u32string& from);
 
-        extern string gen_filename(const string &suffix);
+        extern std::string gen_filename(const std::string &suffix);
 
     }
 
