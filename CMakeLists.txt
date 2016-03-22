@@ -35,13 +35,18 @@ include_directories(${RapidJSON_INCLUDE_DIR})
 # sub project
 add_subdirectory(seger)
 add_subdirectory(postagger)
+add_subdirectory(deparser)
 
 message(STATUS ${han-seger_INCLUDE_DIRS})
 message(STATUS ${SEGER_LIB_NAME})
 message(STATUS ${SEGER_LIB_SRCS})
 
 include_directories(${han-seger_INCLUDE_DIRS})
+include_directories(${postagger_INCLUDE_DIRS})
+include_directories(${deparser_INCLUDE_DIRS})
 
 add_executable(hanspd-test test.cpp)
 
 target_link_libraries(hanspd-test ${SEGER_LIB_NAME})
+target_link_libraries(hanspd-test ${TAGGER_LIB_NAME})
+target_link_libraries(hanspd-test ${DEPARSER_LIB_NAME})

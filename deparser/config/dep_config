@@ -1,0 +1,5 @@
+{
+   "corpus_path":"/home/bruce/ClionProjects/DepPar/corpus/train.txt",
+   "num_iterations":1,
+   "modelfile":"/home/bruce/ClionProjects/DepPar/model/model"
+}

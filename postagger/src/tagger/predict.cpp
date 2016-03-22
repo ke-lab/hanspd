@@ -9,5 +9,5 @@ int main(){
     for(auto i=res.begin();i!=res.end();i++){
         cout<<i->first<<i->second<<endl;
     }
-    return 0;
+
 }
