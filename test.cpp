@@ -17,7 +17,7 @@
 INITIALIZE_EASYLOGGINGPP
 
 #include "base_seger.h"
-int main(){
+int main(int argc,char**argv){
     using namespace std;
 
     Base_Tagger *tagger = Base_Tagger::load("/Users/wangpf/Desktop/model1","CRF");
@@ -27,6 +27,14 @@ int main(){
         cout<<i->first<<i->second<<endl;
     }
 
+    std::string config_file=argv[1];
+    std::ifstream in(config_file,std::ios::in);
+    std::istreambuf_iterator<char> beg(in), end;
+    std::string jsondata(beg, end);
+    rapidjson::Document document;
+    document.Parse(jsondata.c_str());
+    Zpar zp(document);
+    zp.load();
     std::vector<Dependency_TreeNode> aaa=zp.depparser(s);
     std::cout<<std::endl;
     for(int i=0;i<aaa.size();i++)

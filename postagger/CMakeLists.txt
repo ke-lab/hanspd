@@ -7,9 +7,11 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 set(SOURCE_FILES  src/tagger/preprocessor/PreProcessor.cpp  src/tagger/crf/CRFTagger.cpp src/tagger/Base_Tagger.cpp  src/tagger/train.cpp src/tagger/preprocessor/strtool.cpp)
 
 
-set(${PROJECT_NAME}_INCLUDE_DIRS ${PROJECT_SOURCE_DIR}/postagger/include
+set(${PROJECT_NAME}_INCLUDE_DIRS ${PROJECT_SOURCE_DIR}/include
                                  ${RapidJSON_INCLUDE_DIR}
                                  CACHE INTERNAL "${PROJECT_NAME}: Include Directories" FORCE)
+
+include_directories(${${PROJECT_NAME}_INCLUDE_DIRS})
 
 LINK_DIRECTORIES(${PROJECT_SOURCE_DIR}/lib)
 

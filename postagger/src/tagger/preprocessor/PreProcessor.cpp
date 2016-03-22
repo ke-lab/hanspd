@@ -6,7 +6,6 @@
 #include <time.h>
 #include <fstream>
 #include <tagger/crf/crfpp.h>
-
 #include <tagger/preprocessor/strtool.h>
 
 
