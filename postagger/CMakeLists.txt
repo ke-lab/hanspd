@@ -6,8 +6,6 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 
 set(SOURCE_FILES  src/tagger/preprocessor/PreProcessor.cpp  src/tagger/crf/CRFTagger.cpp src/tagger/Base_Tagger.cpp  src/tagger/train.cpp src/tagger/preprocessor/strtool.cpp)
 
-set(RapidJSON_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/third_party/rapidjson/include)
-include_directories(${RapidJSON_INCLUDE_DIR})
 
 set(${PROJECT_NAME}_INCLUDE_DIRS ${PROJECT_SOURCE_DIR}/postagger/include
                                  ${RapidJSON_INCLUDE_DIR}

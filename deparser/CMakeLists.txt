@@ -11,7 +11,7 @@ include_directories (${SOURCE_DIR}/chinese)
 set (CMAKE_CXX_FLAGS "-std=c++11 -g -w -W -O3 -DNDEBUG -DPERCEPTRON_FOR_DECODING -DLABELED -DTARGET_LANGUAGE=chinese")
 include_directories (${SOURCE_DIR}/common/depparser)
 include_directories (${SOURCE_DIR}/common/depparser/implementations/arceager)
-include_directories(${PROJECT_SOURCE_DIR}/include/dep ${PROJECT_SOURCE_DIR}/include/dep/Zpar ${PROJECT_SOURCE_DIR}/third_party/rapidjson/include)
+include_directories(${PROJECT_SOURCE_DIR}/include/dep ${PROJECT_SOURCE_DIR}/include/dep/Zpar)
 
 
 set(${PROJECT_NAME}_INCLUDE_DIRS ${SOURCE_DIR}
