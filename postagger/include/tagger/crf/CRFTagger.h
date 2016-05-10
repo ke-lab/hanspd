@@ -13,20 +13,19 @@
 #include <tagger/crf/crfpp.h>
 #include <utility>
 
-using namespace std;
 
     class CRFTagger: public Base_Tagger {
     public:
-        CRFTagger(const string &model);
+        CRFTagger(const std::string &model);
         CRFTagger(const rapidjson::Document &config);
-        vector< pair<string,string> > predict(vector<u32string> const &sentence) const ;
-        void train(const string &dest_model);
-        bool save(string const &model_path) ;
+        std::vector< std::pair<std::string,std::string> > predict(std::vector<std::u32string> const &sentence) const ;
+        void train(const std::string &dest_model);
+        bool save(std::string const &model_path) ;
 
     private:
         CRFPP::Tagger *tagger;
-        string template_path;
-        string corpus_path;
+        std::string template_path;
+        std::string corpus_path;
         static PreProcessor preProcessor;
 
     };

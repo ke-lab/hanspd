@@ -9,21 +9,21 @@
 #include <tagger/preprocessor/strtool.h>
 
 
-string PreProcessor::modify_file_for_train(const string &rawfile)  {
-    ifstream in(rawfile,ios::in);
+std::string PreProcessor::modify_file_for_train(const std::string &rawfile)  {
+    std::ifstream in(rawfile,std::ios::in);
     time_t rawtime;
     time(&rawtime);
-    string modefied_train=to_string(long(&rawtime))+"_train";
-    ofstream out(modefied_train);
+    std::string modefied_train=std::to_string(long(&rawtime))+"_train";
+    std::ofstream out(modefied_train);
     if(in.is_open()){
         while(!in.eof()){
-            string line;
-            getline(in,line);
+            std::string line;
+            std::getline(in,line);
             line=strtool::trim(line);
-            vector<string>ret_;
+            std::vector<std::string>ret_;
             strtool::split(line,ret_," ");
-            vector<string>w_h;
-            for(string &word:ret_){
+            std::vector<std::string>w_h;
+            for(std::string &word:ret_){
                 strtool::split(word,w_h,"_");
                 out<<w_h[0]<<"\t";
                 out<<w_h[1]<<"\n";
@@ -39,8 +39,8 @@ string PreProcessor::modify_file_for_train(const string &rawfile)  {
     }
 }
 
-int PreProcessor::train_model(const string &_template, const string &stand_file, const string &modelname) {
-    vector<string>args;
+int PreProcessor::train_model(const std::string &_template, const std::string &stand_file, const std::string &modelname) {
+    std::vector<std::string>args;
     args.push_back("crf_learn");
     args.push_back("-f");
     args.push_back("3");
