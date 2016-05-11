@@ -18,7 +18,7 @@ Zpar::Zpar(const rapidjson::Document &config){
 
 
 void Zpar::train(const std::string &dest_model) {
-    std::string str("/home/bruce/ClionProjects/DepPar/lib/train");
+    std::string str("/home/wpf/hanspd/deparser/lib/train");
     str+=" "+corpus_path+" "+dest_model+" "+std::to_string(num_iterations);
     std::cout<<str<<std::endl;
     system(str.c_str());

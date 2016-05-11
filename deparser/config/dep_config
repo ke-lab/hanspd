@@ -1,5 +1,5 @@
 {
-   "corpus_path":"/home/bruce/ClionProjects/DepPar/corpus/train.txt",
+   "corpus_path":"/home/wpf/hanspd/deparser/corpus/train.txt",
    "num_iterations":1,
-   "modelfile":"/home/bruce/ClionProjects/DepPar/model/model"
+   "modelfile":"/home/wpf/hanspd/deparser/model/model1"
 }

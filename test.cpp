@@ -23,11 +23,9 @@ INITIALIZE_EASYLOGGINGPP
 int main(int argc,char**argv){
     std::string pos_model=argv[1];
     Base_Tagger *tagger = Base_Tagger::load(pos_model,"CRF");
-    std::string pos_model=argv[1];
-    Base_Tagger *tagger = Base_Tagger::load(pos_model,"CRF");
     el::Logger* mainLogger = el::Loggers::getLogger("main");
 
-    std::string const seger_model_path = "/home/public/emws_2016-03-28_10-46.model";
+    std::string const seger_model_path = "/home/wpf/emws_2016-03-28_10-46.model";
     mainLogger->info("load model ...");
     base_seger *seger = base_seger::load(seger_model_path, "emws");
 
@@ -46,7 +44,6 @@ int main(int argc,char**argv){
     }
     delete seger;
 
-    Base_Tagger *tagger = Base_Tagger::load("/Users/wangpf/Desktop/model1","CRF");
     std::vector<std::u32string>sentence{U"扬帆",U"远东",U"做",U"与",U"中国",U"合作",U"的",U"先行"};
     auto res=tagger->predict(sentence);
     for(auto i=res.begin();i!=res.end();i++){

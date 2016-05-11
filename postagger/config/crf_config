@@ -1,4 +1,4 @@
 {
-   "template_path":"../template/template",
-   "corpus_path":"../corpus/corpus"
+   "template_path":"/home/wpf/hanspd/postagger/template/template",
+   "corpus_path":"/home/wpf/hanspd/postagger/corpus/corpus"
 }
